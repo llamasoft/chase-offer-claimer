@@ -11,13 +11,13 @@ Well now you can!
 ```javascript
 (function claimAllOffers() {
     var notAddedFilter = document.querySelector('mds-checkbox[label="Not added"]');
-    var seeAllBtn = document.querySelector('mds-button[text="See all offers"]');
-    var unclaimedOffers = document.querySelectorAll('div[data-cy="commerce-tile"]:has(mds-icon[type="ico_add_circle"])');
+    var allOffers = document.querySelector('mds-link[text="All offers"]');
+    var unclaimedOffers = document.querySelectorAll('div[data-cy="commerce-tile"][aria-label$="Add offer"]');
     var noOffersMsg = document.querySelector('div[data-testid="no-offers-container"]');
 
-    if (document.location.hash.indexOf('offer-hub') !== -1 && seeAllBtn != null) {
+    if (document.location.hash.indexOf('offer-hub') !== -1 && allOffers != null) {
         // This is the offers landing page but we need the main offer listing.
-        seeAllBtn.click();
+        allOffers.click();
     } else if (notAddedFilter != null && !notAddedFilter.checked) {
         // If not enabled, click the "Not added" filter.
         notAddedFilter.click();
